@@ -1,3 +1,12 @@
-<h1>Home#index</h1>
-<%= @hello %>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+  <% @clips.each do |clip| %>
+    <div class="col-md-3">
+      <div class="card">
+        <if clip.image>
+        <%= image_tag clip.image, class:"card-img-top" %>
+        <%= link_to clip.title, clip %>
+        <%= clip.description %>
+      </div>
+    </div>
+  <% end %>
+</div>

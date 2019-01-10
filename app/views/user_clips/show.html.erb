@@ -5,5 +5,15 @@
   <%= image_tag @clip.image, width: 500 if @clip.imge %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @user_clip.user %>
+</p>
+
+<p>
+  <strong>Clip:</strong>
+  <%= @user_clip.clip %>
+</p>
+
 <%= link_to 'Edit', edit_user_clip_path(@user_clip) %> |
 <%= link_to 'Back', user_clips_path %>

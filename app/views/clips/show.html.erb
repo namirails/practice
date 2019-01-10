@@ -5,20 +5,18 @@
   <%= @clip.url %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @clip.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @clip.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @clip.image, width: 960 %>
-</p>
-
-<%= link_to 'Edit', edit_clip_path(@clip) %> |
-<%= link_to 'Back', clips_path %>
+<div class="row">
+  <h1><%= @clip.title %></h1>
+  <div class="col-md-4">
+    <%= image_tag @clip.image, 
+            class: 'img-fluid' if @clip.image %>
+  </div>
+  <div class="col-md-8">    
+    <p>
+      <%=link_to @clip.url, @clip.url, 
+         target: '_blank' %></p>
+    <p><%= @clip.description %></p>    
+  </div>
+</div>
+<hr>
+<%= link_to '戻る', clips_path %>

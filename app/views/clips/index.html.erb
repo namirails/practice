@@ -21,7 +21,7 @@
         <td><%= clip.description %></td>
         <td><%= image_tag clip.image, width: 200 %></td>
         <td><%= link_to 'Show', clip %></td>
-        <td><%= link_to 'Edit', edit_clip_path(clip) %></td>
+        <td><%= link_to 'Edit', edit_clip_path(:clip) %></td>
         <td><%= link_to 'Destroy', clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
