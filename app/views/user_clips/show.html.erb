@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @clip.title %></h1>
+<p><%= @clip.description %></p>
+<p>
+  <%= image_tag @clip.image, width: 500 if @clip.imge %>
+</p>
+
+<%= link_to 'Edit', edit_user_clip_path(@user_clip) %> |
+<%= link_to 'Back', user_clips_path %>
