@@ -25,17 +25,6 @@ class ClipsController < ApplicationController
   # POST /clips.json
   def create
     @clip = Clip.new(clip_params)
-    begin
-     meta = MetaInspector.new(@clip.url)
-      @clip.title = meta.title
-      @clip.description = meta. best_ description
-      @clip.image = meta.images.best
-    rescue
-     @clip.errors.add(:base, "無効なURLです")
-      render :new
-      return
-    end
-
     respond_to do |format|
       if @clip.save
         format.html { redirect_to @clip, notice: 'Clip was successfully created.' }
