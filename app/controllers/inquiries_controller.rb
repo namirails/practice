@@ -1,15 +1,26 @@
 class InquiriesController < ApplicationController
   before_action :set_inquiry, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show]
 
   # GET /inquiries
   # GET /inquiries.json
+  def tahnks
+
+  end
   def index
-    @inquiries = Inquiry.all
+    if current_user.admin?
+      @inquiries = Inquiry.all
+    else
+      redirect_to root_path, notice:  "You do not have permission!"
+    end  
   end
 
   # GET /inquiries/1
   # GET /inquiries/1.json
   def show
+    unless current_user.admin?
+      redirect_to root_path, notice:  "You do not have permission!"
+    end  
   end
 
   # GET /inquiries/new
@@ -28,8 +39,8 @@ class InquiriesController < ApplicationController
 
     respond_to do |format|
       if @inquiry.save
-        format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }
-        format.json { render :show, status: :created, location: @inquiry }
+        format.html { redirect_to inquiries_tahnks_url, notice: 'Inquiry was successfully created.' }
+        format.json { hea :no_content }
       else
         format.html { render :new }
         format.json { render json: @inquiry.errors, status: :unprocessable_entity }
