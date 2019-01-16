@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inquiries
   resources :categories
   resources :user_clips
   resources :clips, only: [:index, :show]
